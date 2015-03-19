@@ -6,12 +6,21 @@ public class Potter {
 
 	public double total(int... booklist) {
 
-		if (booklist.length == 2 && booklist[0] == booklist[1]) {
-			return singlePrice * 2;
-		}
-
 		if (booklist.length == 1) {
 			return singlePrice;
+		}else{
+			int samebookcount=0;
+			for(int i=0;i<booklist.length;i++)
+			{
+				if(booklist[i]==booklist[0])
+				{
+					samebookcount++;
+				}
+			}
+			if(samebookcount==booklist.length)
+			{
+				return singlePrice * samebookcount;
+			}
 		}
 		return 0;
 	}
