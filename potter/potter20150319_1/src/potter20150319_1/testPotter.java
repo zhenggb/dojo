@@ -7,9 +7,14 @@ import org.junit.Test;
 public class testPotter {
 
 	@Test
-	public void test() {
+	public void test空购物清单() {
 		
 		assertBookTotal(0.0, new Potter().total());
+	}
+	@Test
+	public void test只有一本书() {
+		
+		assertBookTotal(8.0, new Potter().total(0));
 	}
 
 	private void assertBookTotal(double expect, double atual) {

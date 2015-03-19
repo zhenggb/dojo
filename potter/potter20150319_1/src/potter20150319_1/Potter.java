@@ -2,7 +2,12 @@ package potter20150319_1;
 
 public class Potter {
 
-	public double total(int ... booklist) {
+	double singlePrice = 8.0;
+
+	public double total(int... booklist) {
+		if (booklist.length == 1) {
+			return singlePrice;
+		}
 		return 0;
 	}
 }
