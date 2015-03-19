@@ -47,11 +47,7 @@ public class testPotter {
 		
 		assertBookTotal(8.0*5*0.75, POTTER.total(0,1,2,3,4));
 	}
-	@Test
-	public void test两本不同书与三本不同的书混合的情况() {
-		
-		assertBookTotal(8.0*2*0.95+8.0*3*0.9, POTTER.total(0,1,0,1,2));
-	}	
+	
 	private void assertBookTotal(double expect, double atual) {
 		assertEquals(expect,atual,0.001);
 	}

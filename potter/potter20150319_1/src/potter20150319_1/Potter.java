@@ -35,17 +35,6 @@ public class Potter {
 			}
 		}
 		
-		
-		if(count[4]==2)
-		{
-			if(count[2]==1&&count[3]==2)
-			{
-				return singlePrice*2*discout2+singlePrice*3*discout3;
-			}
-		}
-		
-		
-		
 		int samebookcount = 0;
 		for (int i = 0; i < booklist.length; i++) {
 			if (booklist[i] == booklist[0]) {
