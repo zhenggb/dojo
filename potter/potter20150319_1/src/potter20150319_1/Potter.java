@@ -23,19 +23,20 @@ public class Potter {
 				}
 			}
 		}
+		for(int i=0;i<count.length;i++){
+			System.out.print(count[i]+" ");
+		}
+		System.out.println("");
+		
 		if(count[4]==1){
-			if(count[3]==0 ){
-				return singlePrice;
-			}else if(count[2]==0 &&count[3]==1){
-				return singlePrice*2*discout2;
-			}else if(count[1]==0 &&count[2]==1){
-				return singlePrice*3*discout3;
-			}else if(count[0]==0 &&count[1]==1){
-				return singlePrice*4*discout4;
-			}else if(count[0]==1){
-				return singlePrice*5*discout5;
+			
+			for(int i=0;i<count.length;i++){
+				if(count[i]==1) return calculate(5-i);
 			}
-		}else if(count[4]==2)
+		}
+		
+		
+		if(count[4]==2)
 		{
 			if(count[2]==1&&count[3]==2)
 			{
@@ -44,10 +45,6 @@ public class Potter {
 		}
 		
 		
-		for(int i=0;i<count.length;i++){
-			System.out.print(count[i]+" ");
-		}
-		System.out.println("");
 		
 		int samebookcount = 0;
 		for (int i = 0; i < booklist.length; i++) {
@@ -59,5 +56,15 @@ public class Potter {
 			return singlePrice * samebookcount;
 		}
 		return 0;
+	}
+
+	private double calculate(int num) {
+		switch(num){
+		case 1:return singlePrice;
+		case 2:return singlePrice*2*discout2;
+		case 3:return singlePrice*3*discout3;
+		case 4:return singlePrice*4*discout4;
+		default:return singlePrice*5*discout5;
+		}
 	}
 }
