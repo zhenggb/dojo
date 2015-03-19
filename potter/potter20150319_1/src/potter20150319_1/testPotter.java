@@ -32,6 +32,11 @@ public class testPotter {
 		
 		assertBookTotal(8.0*2*0.95, POTTER.total(0,1));
 	}
+	@Test
+	public void test三本不同书() {
+		
+		assertBookTotal(8.0*3*0.9, POTTER.total(0,1,2));
+	}	
 	private void assertBookTotal(double expect, double atual) {
 		assertEquals(expect,atual,0.001);
 	}
