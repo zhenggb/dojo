@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class testPotter {
 
-	private static Potter POTTER = new Potter();
+	private Potter POTTER = new Potter();
 	@Test
 	public void testø’π∫ŒÔ«Âµ•() {
 		
