@@ -47,6 +47,26 @@ public class testPotter {
 		
 		assertBookTotal(8.0*5*0.75, POTTER.total(0,1,2,3,4));
 	}
+	@Test
+	public void test两本不同书和一本书() {
+		
+		assertBookTotal(8.0*2*0.95+8, POTTER.total(0,1,0));
+	}
+	@Test
+	public void test三本不同书和一本书() {
+		
+		assertBookTotal(8.0*3*0.9+8, POTTER.total(0,1,2,0));
+	}
+	@Test
+	public void test四本不同书和一本书() {
+		
+		assertBookTotal(8.0*4*0.8+8, POTTER.total(0,1,2,3,0));
+	}
+	@Test
+	public void test五本不同书和一本书() {
+		
+		assertBookTotal(8.0*5*0.75+8, POTTER.total(0,1,2,3,4,0));
+	}
 	
 	private void assertBookTotal(double expect, double atual) {
 		assertEquals(expect,atual,0.001);
