@@ -17,9 +17,9 @@ public class Potter {
 		for (int i = 0; i < count.length; i++) {
 			for (int j = i + 1; j < count.length; j++) {
 				if (count[i] > count[j]) {
-					int tmp = count[i];
+					int swap = count[i];
 					count[i] = count[j];
-					count[j] = tmp;
+					count[j] = swap;
 				}
 			}
 		}
@@ -32,21 +32,22 @@ public class Potter {
 		if(count[0]>0 &&count[2]-count[1]>0){
 			int numOfThreeAndFiveBookGroup = Math.min(count[0], count[2]-count[1]);
 			sum += numOfThreeAndFiveBookGroup * 2 * calculate(4);
-			count[0]-=numOfThreeAndFiveBookGroup;
-			count[1]-=numOfThreeAndFiveBookGroup;
-			count[2]-=numOfThreeAndFiveBookGroup*2;
-			count[3]-=numOfThreeAndFiveBookGroup*2;
-			count[4]-=numOfThreeAndFiveBookGroup*2;
+			removeLayer(0, numOfThreeAndFiveBookGroup);
+			removeLayer(2, numOfThreeAndFiveBookGroup);
 		}
 		for (int i = 0; i < count.length; i++) {
 			if (count[i] > 0) {
-				int tmp = count[i];
-				sum += calculate(5 - i) * tmp;
-				for (int j = i; j < count.length; j++)
-					count[j] -= tmp;
+				int numOfLayer = count[i];
+				sum += calculate(5 - i) * numOfLayer;
+				removeLayer(i, numOfLayer);
 			}
 		}
 		return sum;
+	}
+
+	private void removeLayer(int i, int numOfLayer) {
+		for (int j = i; j < count.length; j++)
+			count[j] -= numOfLayer;
 	}
 
 	private double calculate(int num) {
