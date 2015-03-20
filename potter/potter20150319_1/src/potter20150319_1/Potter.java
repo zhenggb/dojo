@@ -29,6 +29,15 @@ public class Potter {
 		System.out.println("");
 		double sum = 0;
 
+		if(count[0]>0 &&count[2]-count[1]>0){
+			int numOfThreeAndFiveBookGroup = Math.min(count[0], count[2]-count[1]);
+			sum += numOfThreeAndFiveBookGroup * 2 * calculate(4);
+			count[0]-=numOfThreeAndFiveBookGroup;
+			count[1]-=numOfThreeAndFiveBookGroup;
+			count[2]-=numOfThreeAndFiveBookGroup*2;
+			count[3]-=numOfThreeAndFiveBookGroup*2;
+			count[4]-=numOfThreeAndFiveBookGroup*2;
+		}
 		for (int i = 0; i < count.length; i++) {
 			if (count[i] > 0) {
 				int tmp = count[i];
@@ -42,16 +51,11 @@ public class Potter {
 
 	private double calculate(int num) {
 		switch (num) {
-		case 1:
-			return singlePrice;
-		case 2:
-			return singlePrice * 2 * discout2;
-		case 3:
-			return singlePrice * 3 * discout3;
-		case 4:
-			return singlePrice * 4 * discout4;
-		default:
-			return singlePrice * 5 * discout5;
+		case 1:	return singlePrice;
+		case 2:	return singlePrice * 2 * discout2;
+		case 3:	return singlePrice * 3 * discout3;
+		case 4:	return singlePrice * 4 * discout4;
+		default:return singlePrice * 5 * discout5;
 		}
 	}
 }
